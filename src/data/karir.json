@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "img": "assets/img/karir/karir-1.png",
+    "posisi_lamaran": "Site Engineer",
+    "tanggal_dibuat": "2026-03-08",
+    "judul_lamaran": "Lowongan Site Engineer Konstruksi",
+    "deskripsi": "Kami membuka kesempatan bagi profesional yang berpengalaman di bidang konstruksi untuk bergabung sebagai Site Engineer. Kandidat akan bertanggung jawab dalam mengawasi pelaksanaan proyek di lapangan serta memastikan pekerjaan berjalan sesuai dengan perencanaan dan standar kualitas."
+  },
+  {
+    "id": 2,
+    "img": "assets/img/karir/karir-2.png",
+    "posisi_lamaran": "Surveyor",
+    "tanggal_dibuat": "2026-03-08",
+    "judul_lamaran": "Lowongan Surveyor Proyek",
+    "deskripsi": "PT Multyartha Indo Daya membuka lowongan untuk posisi Surveyor yang akan bertugas melakukan pengukuran lahan, pemetaan topografi, serta pengumpulan data lapangan yang diperlukan untuk mendukung perencanaan dan pelaksanaan proyek konstruksi."
+  },
+  {
+    "id": 3,
+    "img": "assets/img/karir/karir-3.png",
+    "posisi_lamaran": "Project Manager",
+    "tanggal_dibuat": "2026-03-08",
+    "judul_lamaran": "Lowongan Project Manager Konstruksi",
+    "deskripsi": "Kami mencari Project Manager yang berpengalaman untuk memimpin dan mengelola proyek konstruksi. Kandidat diharapkan mampu mengatur tim, mengelola jadwal proyek, serta memastikan proyek berjalan sesuai target waktu, biaya, dan kualitas."
+  }
+]

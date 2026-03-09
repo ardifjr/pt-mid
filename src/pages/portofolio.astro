@@ -1,0 +1,98 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import portfolio from '../data/portofolio.json';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PT Multyartha Indo Daya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/feather.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <MainLayout title="Portofolio">
+        <div class="main-wrapper">
+          <!-- Breadcrumb -->
+          <div class="breadcrumb-bar">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12 col-12">
+                  <h2 class="breadcrumb-title">Portofolio</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /Breadcrumb -->
+
+          <div class="content">
+            <div class="container">
+
+              {portfolio.map((item, index) => {
+                const isEven = (index + 1) % 2 === 0;
+                const isLast = index === portfolio.length - 1;
+                const statusClass = item.status === "sedang berlangsung" ? "status-badge-ongoing" : "status-badge-finish";
+                const statusLabel = item.status === "sedang berlangsung" ? "Sedang Berlangsung" : "Selesai";
+                const nomorUrut = String(index + 1).padStart(2, '0');
+
+                // Tentukan work-wrap class (opsional, sesuaikan kalau perlu)
+                const wrapClass = index === 0 ? "work-wrap-acc" : index === 1 ? "work-wrap-post" : "work-wrap-earning";
+
+                return (
+                  <div class="row align-items-center">
+
+                    {/* Gambar kiri (urutan ganjil) */}
+                    {isEven && (
+                      <div class="col-md-4 order-last order-md-first">
+                        <div class={`work-img${isLast ? " mb-0" : ""}`}>
+                          <img src={item.img} class="img-fluid" alt={item.title} />
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Konten teks */}
+                    <div class="col-md-8">
+                      <div class={`work-wrap ${wrapClass}${isLast ? " mb-0" : ""}`}>
+                        <span>{nomorUrut}</span>
+                        <h1 class="title-with-status">
+                          {item.title}
+                          <div class={statusClass}>{statusLabel}</div>
+                        </h1>
+                        <p>{item.desc}</p>
+                      </div>
+                    </div>
+
+                    {/* Gambar kanan (urutan genap) */}
+                    {!isEven && (
+                      <div class="col-md-4">
+                        <div class={`work-img${isLast ? " mb-0" : ""}`}>
+                          <img src={item.img} class="img-fluid" alt={item.title} />
+                        </div>
+                      </div>
+                    )}
+
+                  </div>
+                );
+              })}
+
+            </div>
+          </div>
+
+          <div class="mouse-cursor cursor-outer"></div>
+          <div class="mouse-cursor cursor-inner"></div>
+        </div>
+      </MainLayout>
+    </div>
+
+    <script src="/assets/js/jquery-3.6.1.min.js" is:inline></script>
+    <script src="/assets/js/bootstrap.bundle.min.js" is:inline></script>
+    <script src="/assets/js/feather.min.js" is:inline></script>
+    <script src="/assets/js/owl.carousel.min.js" is:inline></script>
+    <script src="/assets/plugins/select2/js/select2.min.js" is:inline></script>
+    <script src="/assets/js/script.js" is:inline></script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+[
+  {
+    "service_name": "Land Surveying",
+    "paragraf": "Layanan land surveying kami bertujuan untuk mengumpulkan data dan informasi penting mengenai kondisi lahan sebelum proses pembangunan dimulai. Dengan pengukuran yang akurat, kami membantu memastikan perencanaan proyek dapat dilakukan secara tepat dan efisien.",
+    "desc_name": "Deskripsi Layanan",
+    "desc": "Proses pengukuran dan pemetaan lahan untuk mengetahui batas wilayah, kondisi permukaan tanah, serta data teknis lainnya yang diperlukan dalam perencanaan konstruksi.",
+    "point": "Pengukuran batas lahan,Pemetaan area proyek,Data akurat untuk perencanaan",
+    "img": "assets/img/layanan/layanan-1.png"
+  },
+  {
+    "service_name": "Topography",
+    "paragraf": "Topographic survey digunakan untuk mengetahui karakteristik alami maupun buatan dari suatu lahan seperti kontur tanah, elevasi, bangunan, dan elemen lainnya yang mempengaruhi proses pembangunan.",
+    "desc_name": "Deskripsi Layanan",
+    "desc": "Pemetaan kondisi topografi lahan untuk membantu arsitek, engineer, dan tim konstruksi dalam merancang serta merencanakan proyek secara lebih presisi.",
+    "point": "Pemetaan kontur tanah,Data elevasi lahan,Analisis kondisi medan",
+    "img": "assets/img/layanan/layanan-2.png"
+  },
+  {
+    "service_name": "Architect",
+    "paragraf": "Layanan arsitektur kami mencakup perencanaan konsep desain hingga penyusunan dokumen konstruksi yang dibutuhkan dalam pembangunan sebuah proyek.",
+    "desc_name": "Deskripsi Layanan",
+    "desc": "Perencanaan desain bangunan yang mencakup konsep arsitektur, studi kelayakan, hingga pengawasan selama proses pembangunan berlangsung.",
+    "point": "Perencanaan desain bangunan,Konsep arsitektur,Manajemen proyek",
+    "img": "assets/img/layanan/layanan-3.png"
+  },
+  {
+    "service_name": "Landscape",
+    "paragraf": "Kami menyediakan layanan landscape untuk menciptakan area luar ruangan yang fungsional, estetis, dan sesuai dengan kebutuhan proyek Anda.",
+    "desc_name": "Deskripsi Layanan",
+    "desc": "Perencanaan dan pembangunan elemen landscape seperti taman, area hijau, dan elemen dekoratif luar ruangan dengan kualitas pengerjaan yang detail.",
+    "point": "Desain taman proyek,Pemasangan elemen landscape,Pengaturan area hijau",
+    "img": "assets/img/layanan/layanan-4.png"
+  },
+  {
+    "service_name": "Sub Grade",
+    "paragraf": "Subgrade merupakan lapisan dasar yang menjadi fondasi utama sebelum pembangunan struktur jalan atau konstruksi lainnya dilakukan.",
+    "desc_name": "Deskripsi Layanan",
+    "desc": "Persiapan dan pengolahan tanah dasar agar memiliki daya dukung yang baik sebelum dilakukan pembangunan struktur di atasnya.",
+    "point": "Persiapan tanah dasar,Peningkatan daya dukung,Pondasi konstruksi awal",
+    "img": "assets/img/layanan/layanan-5.png"
+  },
+  {
+    "service_name": "Compaction",
+    "paragraf": "Proses compaction bertujuan untuk memadatkan tanah sehingga memiliki kekuatan dan stabilitas yang cukup untuk menopang struktur konstruksi.",
+    "desc_name": "Deskripsi Layanan",
+    "desc": "Pemadatan tanah menggunakan alat berat untuk meningkatkan kekuatan tanah dan mengurangi rongga udara di dalam tanah.",
+    "point": "Pemadatan tanah proyek,Meningkatkan stabilitas,Mengurangi rongga tanah",
+    "img": "assets/img/layanan/layanan-6.png"
+  },
+  {
+    "service_name": "Moisture Content",
+    "paragraf": "Pengujian moisture content dilakukan untuk mengetahui kadar air dalam tanah agar proses konstruksi dapat dilakukan dengan kondisi tanah yang optimal.",
+    "desc_name": "Deskripsi Layanan",
+    "desc": "Analisis kadar air dalam tanah untuk menentukan kondisi tanah yang tepat sebelum dilakukan proses pemadatan atau pembangunan.",
+    "point": "Pengujian kadar air tanah,Analisis kondisi tanah,Mendukung proses compaction",
+    "img": "assets/img/layanan/layanan-7.png"
+  },
+  {
+    "service_name": "Soil Type",
+    "paragraf": "Analisis soil type bertujuan untuk mengetahui jenis tanah pada area proyek sehingga metode konstruksi yang digunakan dapat disesuaikan dengan kondisi tanah tersebut.",
+    "desc_name": "Deskripsi Layanan",
+    "desc": "Identifikasi dan klasifikasi jenis tanah untuk menentukan teknik konstruksi dan metode pekerjaan yang paling sesuai.",
+    "point": "Identifikasi jenis tanah,Analisis karakter tanah,Penentuan metode konstruksi",
+    "img": "assets/img/layanan/layanan-8.png"
+  }
+]

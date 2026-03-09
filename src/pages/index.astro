@@ -1,0 +1,971 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import artikelDataRaw from '../data/artikel.json';
+const latestArtikel = artikelDataRaw.slice(0, 3); 
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PT Multyartha Indo Daya</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<link rel="stylesheet" href="assets/css/feather.css">
+    <!-- CSS dari public -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+  </head>
+  <body>
+	<div class="main-wrapper">
+		<MainLayout title="Beranda">
+		<!-- Hero Section -->
+		<section class="hero-section">			
+			<div class="container">
+				<div class="home-banner">
+					<div class="row align-items-center w-100">
+						<div class="col-lg-7 col-md-10 mx-auto">
+							<div class="section-search aos" data-aos="fade-up">
+								<h1>PT Multyartha Indo Daya</h1>
+								<p>Construction Company Services Your ultimate construction partners</p>
+								<div class="search-box">
+									<form action="search.html"> 
+										<div class="search-input line">
+											<div class="search-group-icon">
+												<i class="feather-map-pin"></i>
+											</div>
+											<div class="form-group mb-0">
+												<label>Bandung</label>
+												<input type="text" class="form-control" placeholder="Indonesia">
+											</div>
+										</div>
+										<div class="search-input">
+											<div class="search-group-icon search-icon">
+												<i class="feather-search"></i>
+											</div>
+											<div class="form-group mb-0">
+												<label>Apa yang kamu cari ?</label>
+												<input type="text" class="form-control" placeholder="Restorasi Gedung">
+											</div>
+										</div>
+										<div class="search-btn">
+											<button class="btn btn-primary" type="button"
+												onclick="window.location.href='https://wa.me/62895701946800'">
+												<i class="feather-search me-2"></i>Kontak
+											</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-5">
+							<div class="banner-imgs">
+								<div class="banner-1 shape-1">
+									<img class="img-fluid" alt="banner" src="assets/img/banner1.png">
+								</div>
+								<div class="banner-2 shape-3">
+									<img class="img-fluid" alt="banner" src="assets/img/banner2.png">
+								</div>
+								<div class="banner-3 shape-3">
+									<img class="img-fluid" alt="banner" src="assets/img/banner3.png">
+								</div>
+								<div class="banner-4 shape-2">
+									<img class="img-responsive" alt="banner" src="assets/img/banner4.png">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</section>
+		<!-- /Hero Section -->
+		
+		<!-- Feature Section -->
+		<section class="feature-section">			
+			<div class="container">			
+				<div class="section-heading">
+					<div class="row">
+						<div class="col-md-6 aos" data-aos="fade-up">
+							<h2>Layanan Kita</h2>
+							<p>Apa yang perlu kamu temukan ?</p>
+						</div>
+						<div class="col-md-6 text-md-end aos" data-aos="fade-up">
+							<a href="/layanan" class="btn btn-primary btn-view">Lihat Detail<i class="feather-arrow-right-circle"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-lg-3">
+						<a href="/layanan" class="feature-box aos" data-aos="fade-up">
+							<div class="feature-icon">
+								<span>
+									<img src="assets/img/icons/about-icon-02.svg" alt="img">
+								</span>
+							</div>
+							<h5>Land Surveying</h5>
+							<div class="feature-overlay">
+								<img src="assets/img/services/service-01.jpg" alt="img">
+							</div>
+						</a>
+					</div>
+					<div class="col-md-6 col-lg-3">
+						<a href="/layanan" class="feature-box aos" data-aos="fade-up">
+							<div class="feature-icon">
+								<span>
+									<img src="assets/img/icons/feature-icon-07.svg" alt="img">
+								</span>
+							</div>
+							<h5>Topography</h5>
+							<div class="feature-overlay">
+								<img src="assets/img/services/service-01.jpg" alt="img">
+							</div>
+						</a>
+					</div>
+					<div class="col-md-6 col-lg-3">
+						<a href="/layanan" class="feature-box aos" data-aos="fade-up">
+							<div class="feature-icon">
+								<span>
+									<img src="assets/img/icons/feature-icon-01.svg" alt="img">
+								</span>
+							</div>
+							<h5>Architect</h5>
+							<div class="feature-overlay">
+								<img src="assets/img/services/service-01.jpg" alt="img">
+							</div>
+						</a>
+					</div>
+					<div class="col-md-6 col-lg-3">
+						<a href="/layanan" class="feature-box aos" data-aos="fade-up">
+							<div class="feature-icon">
+								<span>
+									<img src="assets/img/icons/feature-icon-05.svg" alt="img">
+								</span>
+							</div>
+							<h5>Landscape</h5>
+							<div class="feature-overlay">
+								<img src="assets/img/services/service-01.jpg" alt="img">
+							</div>
+						</a>
+					</div>
+					<div class="col-md-6 col-lg-3">
+						<a href="/layanan" class="feature-box aos" data-aos="fade-up">
+							<div class="feature-icon">
+								<span>
+									<img src="assets/img/icons/feature-icon-05.svg" alt="img">
+								</span>
+							</div>
+							<h5>Sub Grade</h5>
+							<div class="feature-overlay">
+								<img src="assets/img/services/service-01.jpg" alt="img">
+							</div>
+						</a>
+					</div>
+					<div class="col-md-6 col-lg-3">
+						<a href="/layanan" class="feature-box aos" data-aos="fade-up">
+							<div class="feature-icon">
+								<span>
+									<img src="assets/img/icons/feature-icon-06.svg" alt="img">
+								</span>
+							</div>
+							<h5>Compaction</h5>
+							<div class="feature-overlay">
+								<img src="assets/img/services/service-01.jpg" alt="img">
+							</div>
+						</a>
+					</div>
+					<div class="col-md-6 col-lg-3">
+						<a href="/layanan" class="feature-box aos" data-aos="fade-up">
+							<div class="feature-icon">
+								<span>
+									<img src="assets/img/icons/feature-icon-08.svg" alt="img">
+								</span>
+							</div>
+							<h5>Moisture Content</h5>
+							<div class="feature-overlay">
+								<img src="assets/img/services/service-01.jpg" alt="img">
+							</div>
+						</a>
+					</div>
+					<div class="col-md-6 col-lg-3">
+						<a href="/layanan" class="feature-box aos" data-aos="fade-up">
+							<div class="feature-icon">
+								<span>
+									<img src="assets/img/icons/feature-icon-08.svg" alt="img">
+								</span>
+							</div>
+							<h5>Soil Type</h5>
+							<div class="feature-overlay">
+								<img src="assets/img/services/service-01.jpg" alt="img">
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- /Feature Section -->
+		
+		<!-- Service Section -->
+		<section class="service-section">			
+			<div class="container">
+				<div class="section-heading">
+					<div class="row">
+						<div class="col-md-6 aos" data-aos="fade-up">						
+							<h2></h2>
+							<p></p>
+						</div>
+						<div class="col-md-6 text-md-end aos" data-aos="fade-up">
+							<div class="owl-nav mynav"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- /Service Section -->
+
+		<!-- Work Section -->
+		<section class="work-section pt-0">		
+			<div class="container">
+				<div class="row  aos" data-aos="fade-up">
+					<div class="col-md-12">
+						<div class="offer-paths">
+							<div class="offer-pathimg">
+								<img src="assets/img/offer.png" alt="img">
+							</div>
+							<div class="offer-path-content">
+								<h3>Apartement Technoplex Living Bandung</h3>
+								<p>PT Multi Karya Utama Abadi, adalah developer yang mengembangkan proyek Apartemen
+Bandung Technoplex Living.
+Kami bekerja sama dengan Yayasan Pendidikan Telkom sebagai pemilik tanah dimana kami
+diberikan hak untuk membangun, menjual apartemen, dan mengelola gedung selama 30 tahun.</p>
+								<a href="/technoplexLiving" class="btn btn-primary btn-views">Detail<i class="feather-arrow-right-circle"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<div class="section-heading aos" data-aos="fade-up">
+							<h2>Keunggulan Kami</h2>
+							<p>Kami Selalu Memberikan Yang Terbaik</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="work-box aos" data-aos="fade-up">
+							<div class="work-icon">
+								<span>
+									<img src="assets/img/icons/work-icon.svg" alt="img">
+								</span>
+							</div>
+							<h5>Layanan Konstruksi yang Lengkap</h5>
+							<p>PT Multyartha Indo Daya menyediakan berbagai layanan mulai dari land surveying, arsitektur, landscape, subgrade, cut and fill, hingga pembangunan struktur dan civil works. Dengan cakupan layanan yang luas ini, perusahaan mampu menangani proyek dari tahap perencanaan hingga pembangunan secara menyeluruh.</p>
+							<h4>01</h4>
+						</div>						
+					</div>
+					<div class="col-md-4">
+						<div class="work-box aos" data-aos="fade-up">
+							<div class="work-icon">
+								<span>
+									<img src="assets/img/icons/find-icon.svg" alt="img">
+								</span>
+							</div>
+							<h5>Didukung Tim Profesional dan Peralatan Lengkap</h5>
+							<p>Perusahaan memiliki tenaga ahli seperti builder, carpenter, electrician, horticulturalist, dan irrigation specialist, serta didukung oleh berbagai alat berat konstruksi seperti crawler dozer, excavator, motor grader, vibratory compactor, dan lainnya. Hal ini memungkinkan pengerjaan proyek yang lebih efisien, presisi, dan berkualitas.</p>
+							<h4>02</h4>
+						</div>						
+					</div>
+					<div class="col-md-4">
+						<div class="work-box aos" data-aos="fade-up">
+							<div class="work-icon">
+								<span>
+									<img src="assets/img/icons/place-icon.svg" alt="img">
+								</span>
+							</div>
+							<h5>Pengalaman Proyek yang Beragam dan Terpercaya</h5>
+							<p>PT Multyartha Indo Daya telah menangani berbagai proyek konstruksi sebagai main contractor maupun sub contractor, pengalaman kami sudah melakukan pembangunan seperti rest area tol, SPBU, proyek kereta cepat Jakarta-Bandung, gedung, perumahan, hingga proyek industri.</p>
+							<h4>03</h4>
+						</div>						
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- /Work Section -->
+
+		
+		
+		<!-- Modal Artikel -->
+		<style>
+		#artikel-modal-overlay {
+			display: none;
+			position: fixed;
+			inset: 0;
+			background: rgba(0, 0, 0, 0.6);
+			z-index: 9999;
+			align-items: center;
+			justify-content: center;
+			padding: 20px;
+		}
+		#artikel-modal-overlay.active {
+			display: flex;
+		}
+		#artikel-modal {
+			background: #fff;
+			border-radius: 12px;
+			max-width: 720px;
+			width: 100%;
+			max-height: 90vh;
+			overflow-y: auto;
+			position: relative;
+			box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+			animation: modalIn 0.25s ease;
+		}
+		@keyframes modalIn {
+			from { transform: translateY(-30px); opacity: 0; }
+			to   { transform: translateY(0);     opacity: 1; }
+		}
+		#artikel-modal .modal-img {
+			width: 100%;
+			max-height: 320px;
+			object-fit: cover;
+			border-radius: 12px 12px 0 0;
+		}
+		#artikel-modal .modal-body-custom {
+			padding: 28px 32px 32px;
+		}
+		#artikel-modal .modal-category {
+			display: inline-block;
+			background: #0d6efd;
+			color: #fff;
+			font-size: 12px;
+			font-weight: 600;
+			padding: 4px 12px;
+			border-radius: 20px;
+			margin-bottom: 12px;
+			letter-spacing: 0.5px;
+		}
+		#artikel-modal .modal-title {
+			font-size: 22px;
+			font-weight: 700;
+			color: #1a1a2e;
+			margin-bottom: 10px;
+			line-height: 1.4;
+		}
+		#artikel-modal .modal-meta {
+			font-size: 13px;
+			color: #888;
+			margin-bottom: 18px;
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
+		#artikel-modal .modal-desc {
+			font-size: 15px;
+			color: #444;
+			line-height: 1.8;
+		}
+		#modal-close-btn {
+			position: absolute;
+			top: 14px;
+			right: 14px;
+			background: rgba(0,0,0,0.55);
+			border: none;
+			color: #fff;
+			width: 34px;
+			height: 34px;
+			border-radius: 50%;
+			font-size: 18px;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: background 0.2s;
+			z-index: 10;
+		}
+		#modal-close-btn:hover {
+			background: rgba(0,0,0,0.8);
+		}
+		</style>
+
+		<div id="artikel-modal-overlay">
+		<div id="artikel-modal">
+			<button id="modal-close-btn" aria-label="Tutup">&times;</button>
+			<img id="modal-img" class="modal-img" src="" alt="Artikel" />
+			<div class="modal-body-custom">
+			<span id="modal-category" class="modal-category"></span>
+			<h2 id="modal-title" class="modal-title"></h2>
+			<div class="modal-meta">
+				<i class="fa-regular fa-calendar"></i>
+				<span id="modal-date"></span>
+			</div>
+			<p id="modal-desc" class="modal-desc"></p>
+			</div>
+		</div>
+		</div>
+
+		<!-- Blog Section -->
+		<section class="blog-section">
+		<div class="container">
+			<div class="row">
+			<div class="col-md-12 text-center aos" data-aos="fade-up">
+				<div class="section-heading">
+				<h2>Artikel Terbaru</h2>
+				<p>Kami Menyediakan Artikel Menarik</p>
+				</div>
+			</div>
+			</div>
+			<div class="row justify-content-between">
+
+			{latestArtikel.map((post) => (
+				<div class="col-lg-4 col-md-6 d-flex">
+				<div class="blog flex-fill aos" data-aos="fade-up">
+					<div class="blog-image">
+					<!-- Image → buka modal -->
+					<a href="#" class="open-modal-link" data-id={post.id}>
+						<img class="img-fluid" src={post.image} alt="Post Image" />
+					</a>
+					</div>
+					<div class="blog-content">
+					<ul class="blog-item">
+						<li><i class="feather-calendar"></i>{post.date}</li>
+						<li>
+						<div class="post-author">
+							<a href="#"><i class="feather-user"></i><span>Admin</span></a>
+						</div>
+						</li>
+					</ul>
+					<!-- Title → buka modal -->
+					<h3 class="blog-title">
+						<a href="#" class="open-modal-link" data-id={post.id}>{post.title}</a>
+					</h3>
+					</div>
+				</div>
+				</div>
+			))}
+
+			<div class="col-md-12 text-md-end aos" data-aos="fade-up">
+				<a href="/artikel" class="btn btn-primary btn-view">
+				Lihat Semua<i class="feather-arrow-right-circle"></i>
+				</a>
+			</div>
+			</div>
+		</div>
+		</section>
+		<!-- /Blog Section -->
+				
+		
+		<!-- Client Section -->
+		<section class="client-section">
+		<div class="container">
+			<div class="row">
+			<div class="col-md-12 text-center">
+				<div class="section-heading aos" data-aos="fade-up">
+				<h2>Apa yang klien kami katakan</h2>
+				<p>Kepercayaan dan kepuasan klien adalah prioritas kami</p>
+				</div>
+			</div>
+			</div>
+
+			<div class="row">
+			<div class="col-md-12">
+				<div class="testimonial-slider-wrapper">
+				<div class="testimonial-track" id="testimonialTrack">
+
+					<div class="client-widget">
+					<div class="client-content">
+						<div class="rating">
+						<i class="fas fa-star filled"></i>
+						<i class="fas fa-star filled"></i>
+						<i class="fas fa-star filled"></i>
+						<i class="fas fa-star filled"></i>
+						<i class="fas fa-star filled"></i>
+						</div>
+						<p>
+						PT Multyartha Indo Daya memberikan hasil pekerjaan yang sangat memuaskan. 
+						Tim mereka profesional, pengerjaan rapi, dan proyek selesai tepat waktu 
+						sesuai dengan perencanaan yang telah disepakati.
+						</p>
+						<h5>Budi Santoso</h5>
+						<h6>Project Manager</h6>
+					</div>
+					</div>
+
+					<div class="client-widget">
+					<div class="client-content">
+						<div class="rating">
+						<i class="fas fa-star filled"></i>
+						<i class="fas fa-star filled"></i>
+						<i class="fas fa-star filled"></i>
+						<i class="fas fa-star filled"></i>
+						<i class="fas fa-star filled"></i>
+						</div>
+						<p>
+						Kami sangat terbantu dengan pelayanan yang diberikan. 
+						Komunikasi dengan tim sangat baik dan setiap detail pekerjaan 
+						diperhatikan dengan serius sehingga hasilnya sesuai harapan.
+						</p>
+						<h5>Andi Pratama</h5>
+						<h6>Site Supervisor</h6>
+					</div>
+					</div>
+
+					<div class="client-widget">
+					<div class="client-content">
+						<div class="rating">
+						<i class="fas fa-star filled"></i>
+						<i class="fas fa-star filled"></i>
+						<i class="fas fa-star filled"></i>
+						<i class="fas fa-star filled"></i>
+						<i class="fas fa-star filled"></i>
+						</div>
+						<p>
+						Pengalaman bekerja sama dengan PT Multyartha Indo Daya sangat positif. 
+						Mereka memiliki tim yang berpengalaman dan mampu menyelesaikan pekerjaan 
+						konstruksi dengan kualitas yang baik dan profesional.
+						</p>
+						<h5>Rizky Hidayat</h5>
+						<h6>Business Owner</h6>
+					</div>
+					</div>
+
+				</div>
+
+				<button class="testi-prev" id="testiPrev">
+					<i class="fa-solid fa-angle-left"></i>
+				</button>
+				<button class="testi-next" id="testiNext">
+					<i class="fa-solid fa-angle-right"></i>
+				</button>
+
+				</div>
+			</div>
+			</div>
+		</div>
+		</section>
+
+		<style>
+		.testimonial-slider-wrapper {
+			position: relative;
+			overflow: hidden;
+			padding: 0 50px;
+		}
+
+		.testimonial-track {
+			display: flex;
+			transition: transform 0.4s ease;
+			gap: 24px;
+		}
+
+		.client-widget {
+			flex: 0 0 calc(50% - 12px);
+			min-width: calc(50% - 12px);
+			background: #fff;
+			border-radius: 12px;
+			padding: 24px;
+			box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+			display: flex;
+			gap: 16px;
+			align-items: flex-start;
+			box-sizing: border-box;
+		}
+
+		.client-img {
+			flex-shrink: 0;
+		}
+
+		.client-img img {
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			object-fit: cover;
+		}
+
+		.client-content p {
+			font-size: 14px;
+			color: #666;
+			margin: 8px 0;
+			line-height: 1.6;
+		}
+
+		.client-content h5 {
+			font-size: 15px;
+			font-weight: 600;
+			margin: 0 0 2px;
+		}
+
+		.client-content h6 {
+			font-size: 13px;
+			color: #888;
+			margin: 0;
+		}
+
+		.rating i {
+			color: #ffc107;
+			font-size: 13px;
+		}
+
+		.testi-prev,
+		.testi-next {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background: #fff;
+			border: 1px solid #ddd;
+			border-radius: 50%;
+			width: 38px;
+			height: 38px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			z-index: 10;
+			transition: background 0.2s, color 0.2s;
+			font-size: 14px;
+		}
+
+		.testi-prev:hover,
+		.testi-next:hover {
+			background: #0d6efd;
+			color: #fff;
+			border-color: #0d6efd;
+		}
+
+		.testi-prev { left: 0; }
+		.testi-next { right: 0; }
+
+		@media (max-width: 767px) {
+			.client-widget {
+			flex: 0 0 100%;
+			min-width: 100%;
+			}
+			.testimonial-slider-wrapper {
+			padding: 0 44px;
+			}
+		}
+		</style>
+
+		<script>
+		const track = document.getElementById('testimonialTrack');
+		const prevBtn = document.getElementById('testiPrev');
+		const nextBtn = document.getElementById('testiNext');
+
+		function getVisible() {
+			return window.innerWidth <= 767 ? 1 : 2;
+		}
+
+		let current = 0;
+
+		function getTotal() {
+			return track.children.length;
+		}
+
+		function updateSlider() {
+			const visible = getVisible();
+			const total = getTotal();
+			// Clamp current index
+			const max = total - visible;
+			if (current > max) current = 0;
+			if (current < 0) current = max;
+
+			const cardWidth = track.children[0].offsetWidth;
+			const gap = 24;
+			track.style.transform = `translateX(-${current * (cardWidth + gap)}px)`;
+		}
+
+		prevBtn.addEventListener('click', () => {
+			const visible = getVisible();
+			const max = getTotal() - visible;
+			current = current <= 0 ? max : current - 1;
+			updateSlider();
+		});
+
+		nextBtn.addEventListener('click', () => {
+			const visible = getVisible();
+			const max = getTotal() - visible;
+			current = current >= max ? 0 : current + 1;
+			updateSlider();
+		});
+
+		window.addEventListener('resize', updateSlider);
+		updateSlider();
+		</script>
+		<!-- /Client Section -->
+
+		<!-- Partners Section -->
+		<section class="blog-section pt-0">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center aos" data-aos="fade-up">
+						<div class="section-heading">
+							<h2>Mitra Kami</h2>
+							<p>Terima kasih yang sudah mempercayakan kepada kami</p>
+						</div>
+					</div>
+					<div class="col-md-12 p-0">
+						<div class="partners-track-wrapper">
+							<div class="partners-track" id="partnersTrack">
+								<div class="partner-img"><img src="/assets/img/partner/partner1.svg" alt="img"></div>
+								<div class="partner-img"><img src="/assets/img/partner/partner2.svg" alt="img"></div>
+								<div class="partner-img"><img src="/assets/img/partner/partner3.svg" alt="img"></div>
+								<div class="partner-img"><img src="/assets/img/partner/partner4.svg" alt="img"></div>
+								<div class="partner-img"><img src="/assets/img/partner/partner5.svg" alt="img"></div>
+								<div class="partner-img"><img src="/assets/img/partner/partner6.svg" alt="img"></div>
+								<div class="partner-img"><img src="/assets/img/partner/partner1.svg" alt="img"></div>
+								<div class="partner-img"><img src="/assets/img/partner/partner2.svg" alt="img"></div>
+								<div class="partner-img"><img src="/assets/img/partner/partner3.svg" alt="img"></div>
+								<div class="partner-img"><img src="/assets/img/partner/partner4.svg" alt="img"></div>
+								<div class="partner-img"><img src="/assets/img/partner/partner5.svg" alt="img"></div>
+								<div class="partner-img"><img src="/assets/img/partner/partner6.svg" alt="img"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<style>
+		.partners-track-wrapper {
+			overflow: hidden;
+			width: 100%;
+			cursor: grab;
+			user-select: none;
+		}
+		.partners-track-wrapper:active {
+			cursor: grabbing;
+		}
+		.partners-track {
+			display: flex;
+			align-items: center;
+			width: max-content;
+			will-change: transform;
+		}
+		</style>
+
+		<script>
+		(function () {
+			const wrapper = document.querySelector('.partners-track-wrapper');
+			const track   = document.getElementById('partnersTrack');
+
+			const BASE_SPEED = 0.6;      // px per frame (normal speed)
+			const MAX_BOOST  = 8;        // max extra speed from drag
+			const FRICTION   = 0.92;     // momentum decay per frame
+
+			let pos       = 0;
+			let velocity  = BASE_SPEED;  // current speed (px/frame, negative = left)
+			let halfWidth = 0;
+
+			let isDragging = false;
+			let lastX      = 0;
+			let dragVel    = 0;
+
+			function init() {
+				halfWidth = track.scrollWidth / 2;
+				requestAnimationFrame(tick);
+			}
+
+			function tick() {
+				if (!isDragging) {
+					// Gradually return velocity toward BASE_SPEED
+					if (Math.abs(velocity) > BASE_SPEED) {
+						velocity *= FRICTION;
+						if (Math.abs(velocity) < BASE_SPEED) velocity = BASE_SPEED;
+					} else {
+						velocity = BASE_SPEED;
+					}
+					pos -= velocity;
+				}
+
+				// Seamless loop
+				if (pos <= -halfWidth) pos += halfWidth;
+				if (pos > 0)           pos -= halfWidth;
+
+				track.style.transform = `translateX(${pos}px)`;
+				requestAnimationFrame(tick);
+			}
+
+			// --- Drag ---
+			wrapper.addEventListener('mousedown', onDown);
+			wrapper.addEventListener('touchstart', onDown, { passive: true });
+			window.addEventListener('mousemove', onMove);
+			window.addEventListener('touchmove', onMove, { passive: false });
+			window.addEventListener('mouseup', onUp);
+			window.addEventListener('touchend', onUp);
+
+			function getX(e) {
+				return e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+			}
+
+			function onDown(e) {
+				isDragging = true;
+				lastX      = getX(e);
+				dragVel    = 0;
+			}
+
+			function onMove(e) {
+				if (!isDragging) return;
+				if (e.type === 'touchmove') e.preventDefault();
+				const x   = getX(e);
+				const dx  = x - lastX;
+				dragVel   = dx;
+				pos      += dx;
+				lastX     = x;
+			}
+
+			function onUp() {
+				if (!isDragging) return;
+				isDragging = false;
+				// Convert drag momentum to velocity (invert: drag right = slow down, drag left = speed up)
+				const boost = -dragVel;
+				velocity = Math.min(BASE_SPEED + MAX_BOOST, Math.max(-MAX_BOOST, BASE_SPEED + boost));
+			}
+
+			// Wait for images to load so scrollWidth is accurate
+			window.addEventListener('load', init);
+			// Fallback
+			setTimeout(init, 300);
+		})();
+		</script>
+
+		<section class="py-20 bg-gray-50">
+			<div class="max-w-7xl mx-auto px-4 text-center">
+				
+				<h2 class="text-4xl font-bold mb-10">
+				Lokasi Kami
+				</h2>
+
+				<iframe
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.308244780691!2d107.63233411088483!3d-6.972913492998657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e9b23d8c0a65%3A0xafba86c2e12d0a6d!2sBandung%20Technoplex%20Living%20Apartemen!5e0!3m2!1sen!2sid!4v1772468169052!5m2!1sen!2sid"
+				width="70%"
+				height="450"
+				style="border:0; display:block; margin: 0 auto;"
+				allowfullscreen=""
+				loading="lazy"
+				referrerpolicy="no-referrer-when-downgrade">
+				</iframe>
+
+			</div>
+		</section>
+
+		<!-- App Section -->
+			<section class="app-section">
+				<div class="container">
+					<div class="app-sec">
+						<div class="row align-items-center">
+							
+							<!-- TEXT -->
+							<div class="col-lg-6 col-md-12">
+								<div class="heading aos" data-aos="fade-up">
+									<h2>Ayo Segera Hubungi Kami</h2>
+									<p>
+										Percayakan kebutuhan konstruksi Anda kepada PT Multyartha Indo Daya. 
+										Dengan dukungan tenaga profesional, pengalaman di berbagai proyek, 
+										serta peralatan yang memadai, kami siap membantu merencanakan dan 
+										mewujudkan proyek konstruksi Anda dengan hasil yang berkualitas, 
+										tepat waktu, dan sesuai kebutuhan Anda.
+									</p>
+								</div>
+
+								<div class="downlaod-btn aos" data-aos="fade-up">
+									<a href="https://wa.me/62895701946800" class="btn btn-primary btn-views" target="_blank">
+										Kontak Kami <i class="feather-arrow-right-circle"></i>
+									</a>
+								</div>
+							</div>
+
+							<!-- IMAGE -->
+							<div class="col-lg-6 col-md-12 text-center">
+								<div class="appimg-set aos" data-aos="fade-up">
+									<img src="assets/img/app-img.png" class="img-fluid" alt="img" style="width:70%;">
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- /App Section -->
+		
+		
+		<!-- Cursor -->
+		<div class="mouse-cursor cursor-outer"></div>
+		<div class="mouse-cursor cursor-inner"></div>
+		<!-- /Cursor -->	
+		</MainLayout>
+	</div>
+	
+	
+	<!-- scrollToTop start -->
+	<div class="progress-wrap active-progress">
+		<svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+		<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919px, 307.919px; stroke-dashoffset: 228.265px;"></path>
+		</svg>
+	</div>
+	<!-- scrollToTop end -->
+	
+	<!-- jQuery -->
+	<script src="/assets/js/jquery-3.6.1.min.js" is:inline></script>
+
+	<!-- Bootstrap Core JS -->
+	<script src="/assets/js/bootstrap.bundle.min.js" is:inline></script>
+
+	<!-- Fearther JS -->
+	<script src="/assets/js/feather.min.js" is:inline></script>
+		
+	<!-- Owl Carousel JS -->
+	<script src="/assets/js/owl.carousel.min.js" is:inline></script>
+
+	<!-- select JS -->
+	<script src="/assets/plugins/select2/js/select2.min.js" is:inline></script>
+	
+	<!-- Aos -->
+	<script src="/assets/plugins/aos/aos.js" is:inline></script>
+	
+	<!-- Top JS -->
+	<script src="/assets/js/backToTop.js" is:inline></script>
+
+	<!-- Custom JS -->
+	<script src="/assets/js/script.js" is:inline></script>
+	
+	<script define:vars={{ latestArtikel }}>
+	const overlay  = document.getElementById('artikel-modal-overlay');
+	const closeBtn = document.getElementById('modal-close-btn');
+
+	function openModal(id) {
+		const post = latestArtikel.find(p => String(p.id) === String(id));
+		if (!post) return;
+
+		document.getElementById('modal-img').src               = post.image;
+		document.getElementById('modal-img').alt               = post.title;
+		document.getElementById('modal-category').textContent  = post.category;
+		document.getElementById('modal-title').textContent     = post.title;
+		document.getElementById('modal-date').textContent      = post.date;
+		document.getElementById('modal-desc').textContent      = post.description;
+
+		overlay.classList.add('active');
+		document.body.style.overflow = 'hidden';
+	}
+
+	function closeModal() {
+		overlay.classList.remove('active');
+		document.body.style.overflow = '';
+	}
+
+	closeBtn.addEventListener('click', closeModal);
+	overlay.addEventListener('click', (e) => {
+		if (e.target === overlay) closeModal();
+	});
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape') closeModal();
+	});
+
+	document.addEventListener('click', (e) => {
+		const link = e.target.closest('.open-modal-link');
+		if (!link) return;
+		e.preventDefault();
+		openModal(link.dataset.id);
+	});
+	</script>
+
+</body>
+</html>

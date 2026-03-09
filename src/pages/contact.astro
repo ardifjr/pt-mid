@@ -1,0 +1,317 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PT Multyartha Indo Daya</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<link rel="stylesheet" href="assets/css/feather.css">
+    <!-- CSS dari public -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+  </head>
+ <body>
+
+	
+	<div class="main-wrapper">
+	<MainLayout title="Kontak">
+	<!-- Breadcrumb -->
+		<div class="breadcrumb-bar">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-12">
+						<h2 class="breadcrumb-title">Kontak</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /Breadcrumb -->
+		
+		<div class="content">
+				
+			<div class="container">
+			
+				<!-- Contact Details -->
+				<div class="contact-details">
+					<div class="row justify-content-center">
+						<div class="col-md-6 col-lg-4 d-flex">
+							<div class="contact-info flex-fill">
+								<span><i class="feather-phone"></i></span>
+								<div class="contact-data">
+									<h4>Nomor Telepon</h4>
+									<p>0812 9200 0029</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-lg-4 d-flex">
+							<div class="contact-info flex-fill">
+								<span><i class="feather-mail"></i></span>
+								<div class="contact-data">
+									<h4>Alamat Email</h4>
+									<p><a href="mailto:multyarthaindodaya@gmail.com">multyarthaindodaya@gmail.com</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-lg-4 d-flex">
+							<div class="contact-info flex-fill">
+								<span><i class="feather-map-pin"></i></span>
+								<div class="contact-data">
+									<h4>Alamat</h4>
+									<p>Surya Asri Residence 9A, Cipagalo Bojongsoang, Kabupaten Bandung, Jawa Barat</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Contact Details -->
+				
+				<!-- Get In Touch -->
+				<div class="row">
+					<div class="col-md-6">
+						<div class="contact-img">
+						<img src="assets/img/logo-pt.png" class="img-fluid" alt="img">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="contact-queries">
+						<h2>Kirim Pesan</h2>
+
+						<form id="contact-form" novalidate>
+							<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								<label class="col-form-label">Nama</label>
+								<input id="from_name" class="form-control" type="text" placeholder="Masukkan Nama">
+								<span class="error-msg" id="err_from_name">Nama tidak boleh kosong.</span>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								<label class="col-form-label">Email</label>
+								<input id="from_email" class="form-control" type="email" placeholder="Masukkan Alamat Email">
+								<span class="error-msg" id="err_from_email">Email tidak boleh kosong.</span>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+								<label class="col-form-label">Nomor Telepon</label>
+								<input id="phone_number" class="form-control" type="text" placeholder="Masukkan Nomor Telepon">
+								<span class="error-msg" id="err_phone_number">Nomor Telepon tidak boleh kosong.</span>
+								</div>
+								<div class="form-group">
+								<label class="col-form-label">Judul Pesan</label>
+								<input id="subject" class="form-control" type="text" placeholder="Masukkan Judul Pesan">
+								<span class="error-msg" id="err_subject">Judul Pesan tidak boleh kosong.</span>
+								</div>
+								<div class="form-group">
+								<label class="col-form-label">Pesan</label>
+								<textarea id="message" class="form-control" rows="4" placeholder="Masukan Pesan"></textarea>
+								<span class="error-msg" id="err_message">Pesan tidak boleh kosong.</span>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<button id="submit-btn" class="btn btn-primary" type="submit">
+								<span id="btn-text">Kirim Pesan</span>
+								<span id="btn-loading" class="d-none">Mengirim...</span>
+								<i class="feather-arrow-right-circle ms-2"></i>
+								</button>
+							</div>
+							</div>
+						</form>
+						</div>
+					</div>
+					</div>
+
+					<script>
+					import emailjs from '@emailjs/browser';
+					import Swal from 'sweetalert2';
+
+					emailjs.init("1QUcVHgo-Cl5uvfpy");
+
+					const form = document.getElementById("contact-form") as HTMLFormElement;
+					const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
+					const btnText = document.getElementById("btn-text")!;
+					const btnLoading = document.getElementById("btn-loading")!;
+
+					// Helper: tampilkan error
+					function showError(inputId: string, errId: string, message: string) {
+						const input = document.getElementById(inputId) as HTMLInputElement | HTMLTextAreaElement;
+						const err = document.getElementById(errId) as HTMLSpanElement;
+						input.classList.add("is-invalid");
+						input.classList.remove("is-valid");
+						err.textContent = message;
+						err.style.display = "block";
+					}
+
+					// Helper: hapus error
+					function clearError(inputId: string, errId: string) {
+						const input = document.getElementById(inputId) as HTMLInputElement | HTMLTextAreaElement;
+						const err = document.getElementById(errId) as HTMLSpanElement;
+						input.classList.remove("is-invalid");
+						input.classList.add("is-valid");
+						err.style.display = "none";
+					}
+
+					// Validasi real-time saat user mulai ngetik
+					document.getElementById("from_name")!.addEventListener("input", function () {
+						const val = (this as HTMLInputElement).value.trim();
+						val ? clearError("from_name", "err_from_name") : showError("from_name", "err_from_name", "Nama tidak boleh kosong.");
+					});
+
+					document.getElementById("phone_number")!.addEventListener("input", function () {
+						const val = (this as HTMLInputElement).value.trim();
+						val ? clearError("phone_number", "err_phone_number") : showError("phone_number", "err_phone_number", "Nomor Telepon tidak boleh kosong.");
+					});
+
+					document.getElementById("subject")!.addEventListener("input", function () {
+						const val = (this as HTMLInputElement).value.trim();
+						val ? clearError("subject", "err_subject") : showError("subject", "err_subject", "Judul Pesan tidak boleh kosong.");
+					});
+
+					document.getElementById("from_email")!.addEventListener("input", function () {
+						const val = (this as HTMLInputElement).value.trim();
+						const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+						if (!val) {
+						showError("from_email", "err_from_email", "Email tidak boleh kosong.");
+						} else if (!emailRegex.test(val)) {
+						showError("from_email", "err_from_email", "Format email tidak valid.");
+						} else {
+						clearError("from_email", "err_from_email");
+						}
+					});
+
+					document.getElementById("message")!.addEventListener("input", function () {
+						const val = (this as HTMLTextAreaElement).value.trim();
+						val ? clearError("message", "err_message") : showError("message", "err_message", "Pesan tidak boleh kosong.");
+					});
+
+					// Validasi saat submit
+					function validateForm(): boolean {
+						let valid = true;
+
+						const name = (document.getElementById("from_name") as HTMLInputElement).value.trim();
+						const email = (document.getElementById("from_email") as HTMLInputElement).value.trim();
+						const phone_number = (document.getElementById("phone_number") as HTMLInputElement).value.trim();
+						const subject = (document.getElementById("subject") as HTMLInputElement).value.trim();
+						const message = (document.getElementById("message") as HTMLTextAreaElement).value.trim();
+						const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+						if (!name) {
+						showError("from_name", "err_from_name", "Nama tidak boleh kosong.");
+						valid = false;
+						} else {
+						clearError("from_name", "err_from_name");
+						}
+
+						if (!email) {
+						showError("from_email", "err_from_email", "Email tidak boleh kosong.");
+						valid = false;
+						} else if (!emailRegex.test(email)) {
+						showError("from_email", "err_from_email", "Format email tidak valid.");
+						valid = false;
+						} else {
+						clearError("from_email", "err_from_email");
+						}
+
+						if (!phone_number) {
+						showError("phone_number", "err_phone_number", "Nomor Telepon tidak boleh kosong.");
+						valid = false;
+						} else {
+						clearError("phone_number", "err_phone_number");
+						}
+
+						if (!subject) {
+						showError("subject", "err_subject", "Judul Pesan tidak boleh kosong.");
+						valid = false;
+						} else {
+						clearError("subject", "err_subject");
+						}
+
+						if (!message) {
+						showError("message", "err_message", "Pesan tidak boleh kosong.");
+						valid = false;
+						} else {
+						clearError("message", "err_message");
+						}
+
+						return valid;
+					}
+
+					form.addEventListener("submit", function (e) {
+						e.preventDefault();
+
+						if (!validateForm()) return;
+
+						const templateParams = {
+						from_name: (document.getElementById("from_name") as HTMLInputElement).value,
+						from_email: (document.getElementById("from_email") as HTMLInputElement).value,
+						phone_number: (document.getElementById("phone_number") as HTMLInputElement).value,
+						subject: (document.getElementById("subject") as HTMLInputElement).value,
+						message: (document.getElementById("message") as HTMLTextAreaElement).value,
+						};
+
+						btnText.classList.add("d-none");
+						btnLoading.classList.remove("d-none");
+						submitBtn.disabled = true;
+
+						emailjs.send("service_71hfleo", "template_hicm2e5", templateParams)
+						.then(function () {
+							Swal.fire({
+							icon: "success",
+							title: "Pesan Terkirim!",
+							text: "Terima kasih, kami akan segera menghubungi kamu.",
+							confirmButtonText: "Oke",
+							confirmButtonColor: "#0d6efd",
+							});
+							form.reset();
+							// Bersihkan semua state is-valid setelah reset
+							["from_name", "from_email", "message"].forEach(id => {
+							document.getElementById(id)!.classList.remove("is-valid", "is-invalid");
+							});
+						})
+						.catch(function (error) {
+							console.error("Gagal kirim:", error);
+							Swal.fire({
+							icon: "error",
+							title: "Gagal Mengirim!",
+							text: "Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.",
+							confirmButtonText: "Coba Lagi",
+							confirmButtonColor: "#dc3545",
+							});
+						})
+						.finally(function () {
+							btnText.classList.remove("d-none");
+							btnLoading.classList.add("d-none");
+							submitBtn.disabled = false;
+						});
+					});
+					</script>
+				<!-- /Get In Touch -->
+			</div>
+		</div>
+	</MainLayout>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="/assets/js/jquery-3.6.1.min.js" is:inline></script>
+
+	<!-- Bootstrap Core JS -->
+	<script src="/assets/js/bootstrap.bundle.min.js" is:inline></script>
+
+	<!-- Fearther JS -->
+	<script src="/assets/js/feather.min.js" is:inline></script>
+		
+	<!-- Owl Carousel JS -->
+	<script src="/assets/js/owl.carousel.min.js" is:inline></script>
+
+	<!-- select JS -->
+	<script src="/assets/plugins/select2/js/select2.min.js" is:inline></script>
+
+	<!-- Custom JS -->
+	<script src="/assets/js/script.js" is:inline></script>	
+	
+</body>
+</html>

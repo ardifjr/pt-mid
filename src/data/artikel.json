@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "image": "assets/img/artikel/artikel-1.png",
+    "date": "2026-03-05",
+    "category": "Teknologi Konstruksi",
+    "title": "Smart Building: Masa Depan Bangunan Modern",
+    "description": "Smart building merupakan konsep bangunan modern yang memanfaatkan teknologi untuk meningkatkan efisiensi energi, keamanan, dan kenyamanan penghuni melalui sistem otomatisasi dan integrasi digital."
+  },
+  {
+    "id": 2,
+    "image": "assets/img/artikel/artikel-2.png",
+    "date": "2026-03-04",
+    "category": "Konstruksi",
+    "title": "Pentingnya Perencanaan dalam Proyek Konstruksi",
+    "description": "Perencanaan yang matang merupakan kunci utama keberhasilan sebuah proyek konstruksi. Dengan perencanaan yang baik, proses pembangunan dapat berjalan lebih efisien, tepat waktu, dan sesuai anggaran."
+  },
+  {
+    "id": 3,
+    "image": "assets/img/artikel/artikel-3.png",
+    "date": "2026-03-03",
+    "category": "Infrastruktur",
+    "title": "Peran Civil Works dalam Pembangunan Infrastruktur",
+    "description": "Civil works menjadi bagian penting dalam pembangunan infrastruktur seperti jalan, jembatan, dan fasilitas umum lainnya yang mendukung perkembangan suatu wilayah."
+  }
+]

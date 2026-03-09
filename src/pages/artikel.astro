@@ -1,0 +1,377 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import artikelDataRaw from '../data/artikel.json';
+const artikelData = [...artikelDataRaw].reverse();
+const featuredPost = artikelDataRaw[0];
+const latestPosts = artikelDataRaw.slice(0, 4);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PT Multyartha Indo Daya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/feather.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <style>
+      /* Modal Overlay */
+      #artikel-modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      #artikel-modal-overlay.active {
+        display: flex;
+      }
+
+      /* Modal Box */
+      #artikel-modal {
+        background: #fff;
+        border-radius: 12px;
+        max-width: 720px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        animation: modalIn 0.25s ease;
+      }
+      @keyframes modalIn {
+        from { transform: translateY(-30px); opacity: 0; }
+        to   { transform: translateY(0);     opacity: 1; }
+      }
+
+      #artikel-modal .modal-img {
+        width: 100%;
+        max-height: 320px;
+        object-fit: cover;
+        border-radius: 12px 12px 0 0;
+      }
+
+      #artikel-modal .modal-body-custom {
+        padding: 28px 32px 32px;
+      }
+
+      #artikel-modal .modal-category {
+        display: inline-block;
+        background: #0d6efd;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 4px 12px;
+        border-radius: 20px;
+        margin-bottom: 12px;
+        letter-spacing: 0.5px;
+      }
+
+      #artikel-modal .modal-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin-bottom: 10px;
+        line-height: 1.4;
+      }
+
+      #artikel-modal .modal-meta {
+        font-size: 13px;
+        color: #888;
+        margin-bottom: 18px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      #artikel-modal .modal-desc {
+        font-size: 15px;
+        color: #444;
+        line-height: 1.8;
+      }
+
+      /* Close Button */
+      #modal-close-btn {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        background: rgba(0,0,0,0.55);
+        border: none;
+        color: #fff;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        font-size: 18px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+        z-index: 10;
+      }
+      #modal-close-btn:hover {
+        background: rgba(0,0,0,0.8);
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- ===== ARTIKEL MODAL ===== -->
+    <div id="artikel-modal-overlay">
+      <div id="artikel-modal">
+        <button id="modal-close-btn" aria-label="Tutup">&times;</button>
+        <img id="modal-img" class="modal-img" src="" alt="Artikel" />
+        <div class="modal-body-custom">
+          <span id="modal-category" class="modal-category"></span>
+          <h2 id="modal-title" class="modal-title"></h2>
+          <div class="modal-meta">
+            <i class="fa-regular fa-calendar"></i>
+            <span id="modal-date"></span>
+          </div>
+          <p id="modal-desc" class="modal-desc"></p>
+        </div>
+      </div>
+    </div>
+    <!-- ===== /ARTIKEL MODAL ===== -->
+
+    <div class="main-wrapper">
+      <MainLayout title="Artikel">
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb-bar">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 col-12">
+                <h2 class="breadcrumb-title">Artikel</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Breadcrumb -->
+
+        <div class="content">
+          <div class="container">
+            <div class="row">
+
+              <!-- Blog List -->
+              <div class="col-lg-8 col-md-12">
+                <div id="blog-container"></div>
+                <div class="blog-pagination">
+                  <nav>
+                    <ul class="pagination justify-content-center" id="pagination-container"></ul>
+                  </nav>
+                </div>
+              </div>
+              <!-- /Blog List -->
+
+              <!-- Blog Sidebar -->
+              <div class="col-lg-4 col-md-12">
+
+                <!-- Featured / First Article -->
+                <div class="card about-widget">
+                  <div class="card-body">
+                    <h4 class="side-title">
+                      <!-- Title sidebar featured → buka modal -->
+                      <a href="#" class="open-modal-link" data-id={featuredPost.id} style="color:inherit;text-decoration:none;">
+                        {featuredPost.title}
+                      </a>
+                    </h4>
+                    <!-- Image sidebar featured → buka modal -->
+                    <a href="#" class="open-modal-link" data-id={featuredPost.id}>
+                      <img src={featuredPost.image} alt="Featured Post" style="width:100%;cursor:pointer;" />
+                    </a>
+                    <p>{featuredPost.description}</p>
+                    <!-- Tombol Detail → buka modal -->
+                    <a href="#" class="btn btn-primary open-modal-link" data-id={featuredPost.id}>Detail</a>
+                  </div>
+                </div>
+                <!-- /Featured -->
+
+                <!-- Latest Posts -->
+                <div class="card post-widget">
+                  <div class="card-body">
+                    <h4 class="side-title">Artikel Terbaru</h4>
+                    <ul class="latest-posts">
+                      {latestPosts.map((post) => (
+                        <li>
+                          <div class="post-thumb">
+                            <!-- Image latest → buka modal -->
+                            <a href="#" class="open-modal-link" data-id={post.id}>
+                              <img class="img-fluid" src={post.image} alt="Latest Post" />
+                            </a>
+                          </div>
+                          <div class="post-info">
+                            <p>{post.date}</p>
+                            <h4>
+                              <!-- Title latest → buka modal -->
+                              <a href="#" class="open-modal-link" data-id={post.id}>{post.title}</a>
+                            </h4>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <!-- /Latest Posts -->
+
+              </div>
+              <!-- /Blog Sidebar -->
+
+            </div>
+          </div>
+        </div>
+
+      </MainLayout>
+    </div>
+
+    <!-- jQuery -->
+    <script src="/assets/js/jquery-3.6.1.min.js" is:inline></script>
+    <script src="/assets/js/bootstrap.bundle.min.js" is:inline></script>
+    <script src="/assets/js/feather.min.js" is:inline></script>
+    <script src="/assets/js/owl.carousel.min.js" is:inline></script>
+    <script src="/assets/plugins/select2/js/select2.min.js" is:inline></script>
+    <script src="/assets/js/script.js" is:inline></script>
+
+    <script define:vars={{ artikelData }}>
+      const POSTS_PER_PAGE = 3;
+      let currentPage = Number(new URLSearchParams(window.location.search).get('page')) || 1;
+
+      // ── MODAL LOGIC ──────────────────────────────────────────────
+      const overlay   = document.getElementById('artikel-modal-overlay');
+      const closeBtn  = document.getElementById('modal-close-btn');
+
+      function openModal(id) {
+        // Cari artikel berdasarkan id (gunakan index jika id duplikat, tapi di sini pakai .find)
+        const post = artikelData.find(p => String(p.id) === String(id));
+        if (!post) return;
+
+        document.getElementById('modal-img').src         = post.image;
+        document.getElementById('modal-img').alt         = post.title;
+        document.getElementById('modal-category').textContent = post.category;
+        document.getElementById('modal-title').textContent    = post.title;
+        document.getElementById('modal-date').textContent     = post.date;
+        document.getElementById('modal-desc').textContent     = post.description;
+
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      closeBtn.addEventListener('click', closeModal);
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeModal(); // klik di luar modal → tutup
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+      });
+
+      // Delegasi event untuk link sidebar (sudah di-render oleh Astro)
+      document.addEventListener('click', (e) => {
+        const link = e.target.closest('.open-modal-link');
+        if (!link) return;
+        e.preventDefault();
+        openModal(link.dataset.id);
+      });
+      // ── /MODAL LOGIC ─────────────────────────────────────────────
+
+      function truncateDesc(text, max = 500) {
+        return text.length > max ? text.slice(0, max) + '...' : text;
+      }
+
+      function renderPosts(page) {
+        const start = (page - 1) * POSTS_PER_PAGE;
+        const posts = artikelData.slice(start, start + POSTS_PER_PAGE);
+        const container = document.getElementById('blog-container');
+
+        container.innerHTML = posts.map(post => `
+          <div class="blog blog-list">
+            <div class="blog-image">
+              <!-- Image blog list → buka modal -->
+              <a href="#" class="open-modal-link" data-id="${post.id}">
+                <img class="img-fluid" src="${post.image}" alt="Post Image">
+              </a>
+            </div>
+            <div class="blog-content">
+              <div class="blog-category">
+                <ul style="display: flex; align-items: center; width: 100%;">
+                  <li>
+                    <div class="blog-info">
+                      <ul>
+                        <li>
+                          <div class="post-author">
+                            <a href="#"><img src="assets/img/profiles/avatar-02.jpg" alt="Post Author"><span>Admin</span></a>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li><i class="feather-calendar me-1"></i>${post.date}</li>
+                  <li style="margin-left: auto;"><span class="cat-blog">${post.category}</span></li>
+                </ul>
+              </div>
+              <!-- Title blog list → buka modal -->
+              <h3 class="blog-title">
+                <a href="#" class="open-modal-link" data-id="${post.id}">${post.title}</a>
+              </h3>
+              <p>${truncateDesc(post.description)}</p>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      function renderPagination(page) {
+        const totalPages = Math.ceil(artikelData.length / POSTS_PER_PAGE);
+        const container = document.getElementById('pagination-container');
+
+        let html = `
+          <li class="page-item ${page <= 1 ? 'disabled' : ''}">
+            <a class="page-link page-prev" href="#" data-page="${page - 1}">
+              <i class="fa-solid fa-arrow-left me-1"></i> PREV
+            </a>
+          </li>
+        `;
+        for (let p = 1; p <= totalPages; p++) {
+          html += `
+            <li class="page-item ${p === page ? 'active' : ''}">
+              <a class="page-link" href="#" data-page="${p}">${p}</a>
+            </li>
+          `;
+        }
+        html += `
+          <li class="page-item ${page >= totalPages ? 'disabled' : ''}">
+            <a class="page-link page-next" href="#" data-page="${page + 1}">
+              NEXT <i class="fa-solid fa-arrow-right ms-1"></i>
+            </a>
+          </li>
+        `;
+
+        container.innerHTML = html;
+
+        container.querySelectorAll('a[data-page]').forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const p = Number(link.dataset.page);
+            if (p < 1 || p > totalPages) return;
+            currentPage = p;
+            window.history.pushState({}, '', p === 1 ? window.location.pathname : `?page=${p}`);
+            renderPosts(currentPage);
+            renderPagination(currentPage);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        });
+      }
+
+      renderPosts(currentPage);
+      renderPagination(currentPage);
+    </script>
+  </body>
+</html>
