@@ -19508,6 +19508,14 @@ fieldset {
 	.mini-sidebar .sidebar {
 		width: 80px;
 	}
+	.abt-img {
+        padding: 30px 0px !important;
+        text-align: center;
+    }
+    .abt-img img {
+        margin: 0 auto;
+        display: block;
+    }
 	.mini-sidebar.expand-menu .sidebar {
 		width: 270px;
 	}
