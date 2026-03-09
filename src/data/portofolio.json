@@ -1,140 +1,140 @@
 [
   {
     "id": 1,
-    "img": "assets/img/porto/porto-1.png",
+    "img": "/assets/img/porto/porto-1.png",
     "title": "Pembangunan Gedung BNN Bandung",
     "desc": "Proyek pembangunan gedung BNN di Bandung yang meliputi pekerjaan struktur baja dan konstruksi sipil.",
     "status": "selesai"
   },
   {
     "id": 2,
-    "img": "assets/img/porto/porto-2.png",
+    "img": "/assets/img/porto/porto-2.png",
     "title": "Pembangunan Mess Medis Paramedis Jampang Kulon",
     "desc": "Pembangunan fasilitas mess untuk tenaga medis dan paramedis di wilayah Jampang Kulon.",
     "status": "selesai"
   },
   {
     "id": 3,
-    "img": "assets/img/porto/porto-3.png",
+    "img": "/assets/img/porto/porto-3.png",
     "title": "AMP Overlay Summarecon",
     "desc": "Pekerjaan overlay aspal pada kawasan Summarecon untuk meningkatkan kualitas permukaan jalan.",
     "status": "selesai"
   },
   {
     "id": 4,
-    "img": "assets/img/porto/porto-4.png",
+    "img": "/assets/img/porto/porto-4.png",
     "title": "AMP Overlay dan Drainase SGE",
     "desc": "Proyek pekerjaan overlay aspal dan pembangunan sistem drainase pada kawasan industri SGE.",
     "status": "selesai"
   },
   {
     "id": 5,
-    "img": "assets/img/porto/porto-5.png",
+    "img": "/assets/img/porto/porto-5.png",
     "title": "Pekerjaan Ducting Manufacture",
     "desc": "Pekerjaan instalasi sistem ducting pada fasilitas manufaktur untuk mendukung sistem utilitas bangunan.",
     "status": "selesai"
   },
   {
     "id": 6,
-    "img": "assets/img/porto/porto-6.png",
+    "img": "/assets/img/porto/porto-6.png",
     "title": "Civil Works Rest Area Km 72 B",
     "desc": "Pekerjaan civil works pada Rest Area Km 72 B yang meliputi pembangunan infrastruktur dan fasilitas area.",
     "status": "selesai"
   },
   {
     "id": 7,
-    "img": "assets/img/porto/porto-7.png",
+    "img": "/assets/img/porto/porto-7.png",
     "title": "Soil Compacting Rest Area Km 88 A",
     "desc": "Pekerjaan pemadatan tanah pada proyek pembangunan Rest Area Km 88 A.",
     "status": "selesai"
   },
   {
     "id": 8,
-    "img": "assets/img/porto/porto-8.png",
+    "img": "/assets/img/porto/porto-8.png",
     "title": "Soil Compacting SGE",
     "desc": "Pekerjaan pemadatan tanah untuk meningkatkan daya dukung tanah pada proyek SGE.",
     "status": "selesai"
   },
   {
     "id": 9,
-    "img": "assets/img/porto/porto-9.png",
+    "img": "/assets/img/porto/porto-9.png",
     "title": "Steel Construction Renovasi Masjid",
     "desc": "Pekerjaan konstruksi baja dalam rangka renovasi bangunan masjid.",
     "status": "selesai"
   },
   {
     "id": 10,
-    "img": "assets/img/porto/porto-10.png",
+    "img": "/assets/img/porto/porto-10.png",
     "title": "Steel Construction IEV Gas Cikarang",
     "desc": "Proyek konstruksi baja pada fasilitas industri IEV Gas di kawasan Cikarang.",
     "status": "selesai"
   },
   {
     "id": 11,
-    "img": "assets/img/porto/porto-11.png",
+    "img": "/assets/img/porto/porto-11.png",
     "title": "Soil Compacting IEV Gas Cikarang",
     "desc": "Pekerjaan pemadatan tanah untuk pembangunan fasilitas industri IEV Gas di Cikarang.",
     "status": "selesai"
   },
   {
     "id": 12,
-    "img": "assets/img/porto/porto-12.png",
+    "img": "/assets/img/porto/porto-12.png",
     "title": "Machine Pad Concrete IEV Gas Cikarang",
     "desc": "Pekerjaan pengecoran concrete pad untuk mesin industri pada proyek IEV Gas Cikarang.",
     "status": "selesai"
   },
   {
     "id": 13,
-    "img": "assets/img/porto/porto-13.png",
+    "img": "/assets/img/porto/porto-13.png",
     "title": "Paving Block IEV Gas Cikarang",
     "desc": "Pemasangan paving block pada kawasan fasilitas industri IEV Gas Cikarang.",
     "status": "selesai"
   },
   {
     "id": 14,
-    "img": "assets/img/porto/porto-14.png",
+    "img": "/assets/img/porto/porto-14.png",
     "title": "Gas Station IEV Gas Cikarang",
     "desc": "Pekerjaan konstruksi fasilitas stasiun gas pada area industri IEV Gas Cikarang.",
     "status": "selesai"
   },
   {
     "id": 15,
-    "img": "assets/img/porto/porto-15.png",
+    "img": "/assets/img/porto/porto-15.png",
     "title": "Civil Works Ruang Tenant Rest Area Km 88 A",
     "desc": "Pembangunan ruang tenant dan fasilitas pendukung pada Rest Area Km 88 A.",
     "status": "selesai"
   },
   {
     "id": 16,
-    "img": "assets/img/porto/porto-16.png",
+    "img": "/assets/img/porto/porto-16.png",
     "title": "Civil Works Drainage Rest Area Km 19 B",
     "desc": "Pekerjaan pembangunan sistem drainase pada Rest Area Km 19 B.",
     "status": "selesai"
   },
   {
     "id": 17,
-    "img": "assets/img/porto/porto-17.png",
+    "img": "/assets/img/porto/porto-17.png",
     "title": "Steel Construction ACP SPBU",
     "desc": "Pekerjaan konstruksi baja dan pemasangan ACP pada bangunan SPBU.",
     "status": "selesai"
   },
   {
     "id": 18,
-    "img": "assets/img/porto/porto-18.png",
+    "img": "/assets/img/porto/porto-18.png",
     "title": "Civil Works Mini Mall Rest Area Km 72",
     "desc": "Pembangunan civil works untuk fasilitas mini mall pada Rest Area Km 72.",
     "status": "selesai"
   },
   {
     "id": 19,
-    "img": "assets/img/porto/porto-19.png",
+    "img": "/assets/img/porto/porto-19.png",
     "title": "Civil Works Close House Subang",
     "desc": "Pekerjaan konstruksi sipil untuk pembangunan perumahan close house di Subang.",
     "status": "selesai"
   },
   {
     "id": 20,
-    "img": "assets/img/porto/porto-20.png",
+    "img": "/assets/img/porto/porto-20.png",
     "title": "Civil Works Gardu Induk KIIC Karawang",
     "desc": "Pekerjaan konstruksi sipil pada pembangunan gardu induk di kawasan industri KIIC Karawang.",
     "status": "selesai"

@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "img": "assets/img/karir/karir-1.png",
+    "img": "/assets/img/karir/karir-1.png",
     "posisi_lamaran": "Site Engineer",
     "tanggal_dibuat": "2026-03-08",
     "judul_lamaran": "Lowongan Site Engineer Konstruksi",
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "img": "assets/img/karir/karir-2.png",
+    "img": "/assets/img/karir/karir-2.png",
     "posisi_lamaran": "Surveyor",
     "tanggal_dibuat": "2026-03-08",
     "judul_lamaran": "Lowongan Surveyor Proyek",
@@ -17,7 +17,7 @@
   },
   {
     "id": 3,
-    "img": "assets/img/karir/karir-3.png",
+    "img": "/assets/img/karir/karir-3.png",
     "posisi_lamaran": "Project Manager",
     "tanggal_dibuat": "2026-03-08",
     "judul_lamaran": "Lowongan Project Manager Konstruksi",

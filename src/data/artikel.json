@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "image": "assets/img/artikel/artikel-1.png",
+    "image": "/assets/img/artikel/artikel-1.png",
     "date": "2026-03-05",
     "category": "Teknologi Konstruksi",
     "title": "Smart Building: Masa Depan Bangunan Modern",
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "image": "assets/img/artikel/artikel-2.png",
+    "image": "/assets/img/artikel/artikel-2.png",
     "date": "2026-03-04",
     "category": "Konstruksi",
     "title": "Pentingnya Perencanaan dalam Proyek Konstruksi",
@@ -17,7 +17,7 @@
   },
   {
     "id": 3,
-    "image": "assets/img/artikel/artikel-3.png",
+    "image": "/assets/img/artikel/artikel-3.png",
     "date": "2026-03-03",
     "category": "Infrastruktur",
     "title": "Peran Civil Works dalam Pembangunan Infrastruktur",
