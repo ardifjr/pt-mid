@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "tipe_unit": "Alyssum",
+    "img": "assets/img/apart/unit-1.jpeg",
+    "detail_img": [
+      "assets/img/apart/detail-unit-1.png"
+    ],
+    "luas": "24.10 m2",
+    "desc": "Unit compact yang dirancang untuk hunian modern dengan tata ruang efisien dan pencahayaan alami."
+  },
+  {
+    "id": 2,
+    "tipe_unit": "Ambrosia",
+    "img": "assets/img/apart/unit-2.jpeg",
+    "detail_img": [
+      "assets/img/apart/detail-unit-2.png"
+    ],
+    "luas": "26.31 m2",
+    "desc": "Tipe unit dengan ruang lebih luas yang cocok untuk hunian praktis maupun investasi properti."
+  },
+  {
+    "id": 3,
+    "tipe_unit": "Ivy",
+    "img": "assets/img/apart/unit-3.jpeg",
+    "detail_img": [
+      "assets/img/apart/detail-unit-3.png"
+    ],
+    "luas": "48.99 m2",
+    "desc": "Unit dengan ruang lega dan desain interior modern yang memberikan kenyamanan maksimal bagi penghuni."
+  },
+  {
+    "id": 4,
+    "tipe_unit": "Irish",
+    "img": "assets/img/apart/unit-4.jpeg",
+    "detail_img": [
+      "assets/img/apart/detail-unit-4.png"
+    ],
+    "luas": "51.26 m2",
+    "desc": "Tipe unit premium dengan area luas, cocok untuk keluarga kecil yang menginginkan hunian nyaman."
+  }
+]
