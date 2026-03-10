@@ -54,6 +54,9 @@ const latestPosts = artikelDataRaw.slice(0, 4);
         max-height: 320px;
         object-fit: cover;
         border-radius: 12px 12px 0 0;
+        /* Penting: SVG perlu min-height agar tidak collapse */
+        min-height: 180px;
+        background: #f0f0f0;
       }
 
       #artikel-modal .modal-body-custom {
@@ -117,6 +120,17 @@ const latestPosts = artikelDataRaw.slice(0, 4);
       #modal-close-btn:hover {
         background: rgba(0,0,0,0.8);
       }
+
+      /* Fix: Pastikan semua img container punya dimensi eksplisit */
+      .blog-image img,
+      .post-thumb img,
+      .about-widget img {
+        width: 100%;
+        height: auto;
+        display: block;
+        /* Background sementara saat SVG loading */
+        background: #f5f5f5;
+      }
     </style>
   </head>
   <body>
@@ -125,7 +139,20 @@ const latestPosts = artikelDataRaw.slice(0, 4);
     <div id="artikel-modal-overlay">
       <div id="artikel-modal">
         <button id="modal-close-btn" aria-label="Tutup">&times;</button>
-        <img id="modal-img" class="modal-img" src="" alt="Artikel" />
+        <!--
+          FIX SVG: Tambahkan width & height eksplisit.
+          SVG tanpa dimensi pada elemen <img> menyebabkan browser
+          terus-menerus re-request karena ukuran tidak pernah settled.
+        -->
+        <img
+          id="modal-img"
+          class="modal-img"
+          src=""
+          alt="Artikel"
+          width="720"
+          height="320"
+          decoding="async"
+        />
         <div class="modal-body-custom">
           <span id="modal-category" class="modal-category"></span>
           <h2 id="modal-title" class="modal-title"></h2>
@@ -176,17 +203,27 @@ const latestPosts = artikelDataRaw.slice(0, 4);
                 <div class="card about-widget">
                   <div class="card-body">
                     <h4 class="side-title">
-                      <!-- Title sidebar featured → buka modal -->
                       <a href="#" class="open-modal-link" data-id={featuredPost.id} style="color:inherit;text-decoration:none;">
                         {featuredPost.title}
                       </a>
                     </h4>
-                    <!-- Image sidebar featured → buka modal -->
                     <a href="#" class="open-modal-link" data-id={featuredPost.id}>
-                      <img src={featuredPost.image} alt="Featured Post" style="width:100%;cursor:pointer;" />
+                      <!--
+                        FIX SVG: width/height eksplisit wajib ada.
+                        Tanpa ini, browser tidak tahu ukuran SVG dan bisa
+                        trigger infinite layout recalculation + re-request.
+                      -->
+                      <img
+                        src={featuredPost.image}
+                        alt="Featured Post"
+                        width="400"
+                        height="225"
+                        style="width:100%;height:auto;cursor:pointer;display:block;background:#f5f5f5;"
+                        decoding="async"
+                        loading="lazy"
+                      />
                     </a>
                     <p>{featuredPost.description}</p>
-                    <!-- Tombol Detail → buka modal -->
                     <a href="#" class="btn btn-primary open-modal-link" data-id={featuredPost.id}>Detail</a>
                   </div>
                 </div>
@@ -200,15 +237,27 @@ const latestPosts = artikelDataRaw.slice(0, 4);
                       {latestPosts.map((post) => (
                         <li>
                           <div class="post-thumb">
-                            <!-- Image latest → buka modal -->
                             <a href="#" class="open-modal-link" data-id={post.id}>
-                              <img class="img-fluid" src={post.image} alt="Latest Post" />
+                              <!--
+                                FIX SVG: width/height eksplisit.
+                                img-fluid saja tidak cukup untuk SVG karena
+                                SVG tidak punya intrinsic size seperti PNG/JPEG.
+                              -->
+                              <img
+                                class="img-fluid"
+                                src={post.image}
+                                alt="Latest Post"
+                                width="150"
+                                height="100"
+                                decoding="async"
+                                loading="lazy"
+                                style="background:#f5f5f5;"
+                              />
                             </a>
                           </div>
                           <div class="post-info">
                             <p>{post.date}</p>
                             <h4>
-                              <!-- Title latest → buka modal -->
                               <a href="#" class="open-modal-link" data-id={post.id}>{post.title}</a>
                             </h4>
                           </div>
@@ -242,16 +291,24 @@ const latestPosts = artikelDataRaw.slice(0, 4);
       let currentPage = Number(new URLSearchParams(window.location.search).get('page')) || 1;
 
       // ── MODAL LOGIC ──────────────────────────────────────────────
-      const overlay   = document.getElementById('artikel-modal-overlay');
-      const closeBtn  = document.getElementById('modal-close-btn');
+      const overlay  = document.getElementById('artikel-modal-overlay');
+      const closeBtn = document.getElementById('modal-close-btn');
+      const modalImg = document.getElementById('modal-img');
 
       function openModal(id) {
-        // Cari artikel berdasarkan id (gunakan index jika id duplikat, tapi di sini pakai .find)
         const post = artikelData.find(p => String(p.id) === String(id));
         if (!post) return;
 
-        document.getElementById('modal-img').src         = post.image;
-        document.getElementById('modal-img').alt         = post.title;
+        /*
+         * FIX SVG di modal:
+         * Reset src dulu ke '' sebelum set yang baru.
+         * Ini mencegah browser "stuck" pada request SVG sebelumnya
+         * yang belum selesai, lalu overlap dengan request baru.
+         */
+        modalImg.src = '';
+        modalImg.src = post.image;
+        modalImg.alt = post.title;
+
         document.getElementById('modal-category').textContent = post.category;
         document.getElementById('modal-title').textContent    = post.title;
         document.getElementById('modal-date').textContent     = post.date;
@@ -264,17 +321,22 @@ const latestPosts = artikelDataRaw.slice(0, 4);
       function closeModal() {
         overlay.classList.remove('active');
         document.body.style.overflow = '';
+        /*
+         * FIX: Saat modal ditutup, bersihkan src modal-img.
+         * Ini menghentikan browser dari terus me-render/request SVG
+         * yang sudah tidak terlihat di layar.
+         */
+        setTimeout(() => { modalImg.src = ''; }, 300);
       }
 
       closeBtn.addEventListener('click', closeModal);
       overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) closeModal(); // klik di luar modal → tutup
+        if (e.target === overlay) closeModal();
       });
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeModal();
       });
 
-      // Delegasi event untuk link sidebar (sudah di-render oleh Astro)
       document.addEventListener('click', (e) => {
         const link = e.target.closest('.open-modal-link');
         if (!link) return;
@@ -295,9 +357,23 @@ const latestPosts = artikelDataRaw.slice(0, 4);
         container.innerHTML = posts.map(post => `
           <div class="blog blog-list">
             <div class="blog-image">
-              <!-- Image blog list → buka modal -->
               <a href="#" class="open-modal-link" data-id="${post.id}">
-                <img class="img-fluid" src="${post.image}" alt="Post Image">
+                <!--
+                  FIX SVG: width & height eksplisit pada semua img.
+                  SVG tidak punya intrinsic dimensions seperti PNG/JPEG,
+                  sehingga browser tidak bisa menentukan layout space-nya
+                  → menyebabkan continuous reflow & re-request di Network tab.
+                -->
+                <img
+                  class="img-fluid"
+                  src="${post.image}"
+                  alt="Post Image"
+                  width="800"
+                  height="450"
+                  loading="lazy"
+                  decoding="async"
+                  style="background:#f5f5f5;"
+                >
               </a>
             </div>
             <div class="blog-content">
@@ -308,7 +384,17 @@ const latestPosts = artikelDataRaw.slice(0, 4);
                       <ul>
                         <li>
                           <div class="post-author">
-                            <a href="#"><img src="/assets/img/profiles/avatar-02.jpg" alt="Post Author"><span>Admin</span></a>
+                            <a href="#">
+                              <img
+                                src="/assets/img/profiles/avatar-02.jpg"
+                                alt="Post Author"
+                                width="32"
+                                height="32"
+                                loading="lazy"
+                                decoding="async"
+                              >
+                              <span>Admin</span>
+                            </a>
                           </div>
                         </li>
                       </ul>
@@ -318,7 +404,6 @@ const latestPosts = artikelDataRaw.slice(0, 4);
                   <li style="margin-left: auto;"><span class="cat-blog">${post.category}</span></li>
                 </ul>
               </div>
-              <!-- Title blog list → buka modal -->
               <h3 class="blog-title">
                 <a href="#" class="open-modal-link" data-id="${post.id}">${post.title}</a>
               </h3>
