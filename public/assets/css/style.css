@@ -2380,6 +2380,10 @@ html.menu-opened body {
 	padding: 0 104px;
 	z-index: 1;
 }
+.mobile-status {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
 .providers-section {
     padding-bottom: 366px;
 }
@@ -2389,7 +2393,6 @@ html.menu-opened body {
     background-position: right center;
 }
 .pricing-sections{
-	background:  url(../img/bg/pricing.png),url(../img/bg/pricing2.png);
     background-repeat: no-repeat;
     background-position: right center,left center;
 }
@@ -19485,6 +19488,7 @@ fieldset {
 		-ms-transform: translateY(20px);
 		transform: translateY(20px);
 	}
+	.mobile-only-nav { display: none; }
 	.mini-sidebar .header-left .logo img {
 		height: auto;
 		max-height: 40px;

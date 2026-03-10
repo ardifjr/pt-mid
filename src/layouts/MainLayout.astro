@@ -14,11 +14,24 @@ const { title = "Technoplex Living Bandung" } = Astro.props;
     <title>PT Multyartha Indo Daya</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 	<link rel="stylesheet" href="/assets/css/feather.css">
-    <!-- CSS dari public -->
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/assets/css/style.css" />
+	<style>
+	.header-navbar-rht { display: flex; }
+
+	@media (max-width: 991px) {
+		.header-navbar-rht { display: none !important; }
+	}
+
+	.rht-mobile-item { display: none; }
+
+	@media (max-width: 991px) {
+		.rht-mobile-item { display: block; }
+	}
+	</style>
   </head>
 <body>
+
   <div class="main-wrapper">
 
     <!-- Header -->
@@ -48,28 +61,29 @@ const { title = "Technoplex Living Bandung" } = Astro.props;
 							<a id="menu_close" class="menu-close" href="javascript:void(0);"> <i class="fas fa-times"></i></a>
 						</div>
 						<ul class="main-nav">
-							<li class="has-submenu">
+							<!-- FIX 1: Beranda pakai <a href="/"> langsung, tanpa has-submenu agar bisa diklik di mobile -->
+							<li>
 								<a href="/">Beranda</a>
 							</li>
 							<li class="has-submenu">
 								<a href="javascript:void(0);">Perusahaan <i class="fas fa-chevron-down"></i></a>
 								<ul class="submenu">
-									<!-- <li class="active"><a href="/">Home 1</a></li> -->
-									<li><a href="/about-us">Tentang Kami</a></li> <!-- inc identitas, visi misi, struktur organisasi, legalitas --> 
-									<li><a href="/portofolio">Portofolio</a></li> <!-- inc on going / out going -->
+									<li><a href="/about-us">Tentang Kami</a></li>
+									<li><a href="/portofolio">Portofolio</a></li>
 								</ul>
 							</li>
 							<li><a href="/layanan">Layanan</a></li>
 							<li><a href="/artikel">Artikel</a></li>
 							<li><a href="/karir">Karir</a></li>
+							<li class="nav-item rht-mobile-item">
+								<a href="/contact">Kontak</a>
+							</li>
+							<li class="nav-item rht-mobile-item">
+								<a href="/technoplexLiving">Technoplex Living Bandung</a>
+							</li>
 						</ul>
 					</div>
-					<ul class="nav header-navbar-rht">
-						<li class="nav-item">
-						</li>
-						<li class="nav-item">
-						</li>
-					</ul>
+					<!-- Tetap tampil di desktop -->
 					<ul class="nav header-navbar-rht">
 						<li class="nav-item">
 							<a class="nav-link header-reg" href="/contact">Kontak</a>
@@ -83,17 +97,14 @@ const { title = "Technoplex Living Bandung" } = Astro.props;
 		</header>
 		<!-- /Header -->
 
-    <!-- Konten halaman akan masuk di sini -->
     <slot />
 
    <!-- Footer -->
 		<footer class="footer">
-			<!-- Footer Top -->
 			<div class="footer-top aos" data-aos="fade-up">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-4 col-md-6">
-							<!-- Footer Widget -->
 							<div class="footer-widget">
 								<div class="footer-logo">
 									<a href="/"><img src="/assets/img/logo.png" alt="logo"></a>
@@ -102,31 +113,19 @@ const { title = "Technoplex Living Bandung" } = Astro.props;
 									<p>PT Multyartha Indo Daya adalah perusahaan jasa konstruksi yang menyediakan layanan seperti land surveying, arsitektur, landscape, subgrade, cut and fill, serta civil works dengan dukungan tenaga profesional dan pengalaman di berbagai proyek pembangunan.</p>
 								</div>
 							</div>
-							<!-- /Footer Widget -->
 						</div>
 						<div class="col-lg-2 col-md-6">
-							<!-- Footer Widget -->
 							<div class="footer-widget footer-menu">
 								<h2 class="footer-title">Tautan Cepat</h2>
 								<ul>
-									<li>
-										<a href="/technoplexLiving">Technoplex Living Bandung</a>
-									</li>
-									<li>
-										<a href="/about-us">Tentang Kami</a>
-									</li>
-									<li>
-										<a href="/portofolio">Portofolio</a>
-									</li>
-									<li>
-										<a href="layanan">Layanan</a>
-									</li>
+									<li><a href="/technoplexLiving">Technoplex Living Bandung</a></li>
+									<li><a href="/about-us">Tentang Kami</a></li>
+									<li><a href="/portofolio">Portofolio</a></li>
+									<li><a href="layanan">Layanan</a></li>
 								</ul>
 							</div>
-							<!-- /Footer Widget -->
 						</div>
 						<div class="col-lg-3 col-md-6">
-							<!-- Footer Widget -->
 							<div class="footer-widget footer-contact">
 								<h2 class="footer-title">Contact Us</h2>
 								<div class="footer-contact-info">
@@ -137,72 +136,77 @@ const { title = "Technoplex Living Bandung" } = Astro.props;
 									<p class="mb-0"><span><i class="feather-mail"></i></span> multyarthaindodaya@gmail.com</p>
 								</div>
 							</div>
-							<!-- /Footer Widget -->
 						</div>
 						<div class="col-lg-3 col-md-6">
-							<!-- Footer Widget -->
 							<div class="footer-widget">
 								<h2 class="footer-title">Follow Us</h2>
 								<div class="social-icon">
 									<ul>
-										<li>
-											<a href="#" target="_blank"><i class="fa-brands fa-facebook"></i> </a>
-										</li>
-										<li>
-											<a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
-										</li>
-										<li>
-											<a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-										</li>
-										<li>
-											<a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-										</li>
+										<li><a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>
+										<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+										<li><a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+										<li><a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
 									</ul>
 								</div>
 							</div>
-							<!-- /Footer Widget -->
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- /Footer Top -->
 			
-			<!-- Footer Bottom -->
 			<div class="footer-bottom">
 				<div class="container">
-					<!-- Copyright -->
 					<div class="copyright">
 						<div class="row align-items-center">
 							<div class="col-md-4">
 								<div class="copyright-text">
-									<p class="mb-0">
-									Copyright &copy; {new Date().getFullYear()}. All Rights Reserved.
-									</p>
+									<p class="mb-0">Copyright &copy; {new Date().getFullYear()}. All Rights Reserved.</p>
 								</div>
 							</div>
 							<div class="col-md-4">
-								<div class="payment-image">
-									<ul>
-										
-									</ul>
-								</div>
+								<div class="payment-image"><ul></ul></div>
 							</div>
 							<div class="col-md-4">
-								<!-- Copyright Menu -->
-								<div class="copyright-menu">
-								</div>
-								<!-- /Copyright Menu -->
+								<div class="copyright-menu"></div>
 							</div>
 						</div>
 					</div>
-					<!-- /Copyright -->
 				</div>
 			</div>
-			<!-- /Footer Bottom -->
-			
 		</footer>
 		<!-- /Footer -->
 
   </div>
+
+  <script>
+  function attachOverlayClose() {
+		// Coba attach langsung dulu (kalau overlay sudah ada)
+		function tryAttach() {
+		const templateOverlay =
+			document.querySelector('.sidebar-overlay') ||
+			document.querySelector('.menu-overlay') ||
+			document.querySelector('.sidebar-backdrop');
+
+		if (templateOverlay && !templateOverlay.dataset.listenerAttached) {
+			templateOverlay.dataset.listenerAttached = 'true';
+			templateOverlay.addEventListener('click', () => {
+			document.getElementById('menu_close')?.click();
+			});
+		}
+		}
+
+		// Jalankan langsung
+		tryAttach();
+
+		// Tetap observe untuk overlay yang dibuat dinamis (ditambah SETELAH klik menu)
+		const observer = new MutationObserver(() => {
+		tryAttach();
+		});
+
+		observer.observe(document.body, { childList: true, subtree: true });
+	}
+
+	document.addEventListener('DOMContentLoaded', attachOverlayClose);
+	</script>
 </body>
 </html>

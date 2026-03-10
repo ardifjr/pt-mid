@@ -380,6 +380,16 @@ import MainLayout from '../layouts/MainLayout.astro';
 		</div>
 
 		<style>
+		.pricing-sections::before,
+		.pricing-sections::after {
+		display: none !important;
+		}
+
+		.pricing-sections .section-heading::before,
+		.pricing-sections .section-heading::after {
+		display: none !important;
+		}
+
 		.image-popup{
 			display:none;
 			position:fixed;

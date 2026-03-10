@@ -58,9 +58,14 @@ import portfolio from '../data/portofolio.json';
                     <div class="col-md-8">
                       <div class={`work-wrap ${wrapClass}${isLast ? " mb-0" : ""}`}>
                         <span>{nomorUrut}</span>
+                        
+                        {/* Badge status: muncul di sini HANYA di mobile */}
+                        <div class={`${statusClass} d-block d-md-none mobile-status`}>{statusLabel}</div>
+                        
                         <h1 class="title-with-status">
                           {item.title}
-                          <div class={statusClass}>{statusLabel}</div>
+                          {/* Badge status: muncul di sini HANYA di desktop */}
+                          <div class={`${statusClass} d-none d-md-block`}>{statusLabel}</div>
                         </h1>
                         <p>{item.desc}</p>
                       </div>
